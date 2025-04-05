@@ -1,0 +1,14 @@
+{
+  "menu.home": "Home",
+  "menu.services": "Services",
+  "menu.about": "About",
+  "menu.partners": "Partners",
+  "menu.contact": "Contact",
+  "hero.title": "Technology with intelligence",
+  "hero.subtitle": "Security as a priority",
+  "button.contact": "Contact us",
+  "form.name": "Name",
+  "form.email": "Email",
+  "form.message": "Message",
+  "form.submit": "Send Message"
+}
