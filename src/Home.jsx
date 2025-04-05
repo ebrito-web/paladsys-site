@@ -65,23 +65,41 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-neutral-900" id="contato">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4">Contato</h2>
-          <p className="text-neutral-300 mb-6">
-            Quer saber como podemos ajudar sua empresa? Entre em contato e fale com um especialista PaladSys.
-          </p>
-          <a
-            href="mailto:contato@paladsys.com"
-            className="inline-block bg-white text-black px-6 py-3 rounded-2xl font-semibold shadow-lg hover:bg-neutral-200 transition"
-          >
-            contato@paladsys.com
-          </a>
+      <section className="py-20 px-6 bg-neutral-900">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-10">Parceiros Estratégicos</h2>
+          <div className="flex flex-wrap items-center justify-center gap-10">
+            <div className="w-32 h-16 bg-white rounded-lg shadow-md flex items-center justify-center text-black font-semibold">Logo 1</div>
+            <div className="w-32 h-16 bg-white rounded-lg shadow-md flex items-center justify-center text-black font-semibold">Logo 2</div>
+            <div className="w-32 h-16 bg-white rounded-lg shadow-md flex items-center justify-center text-black font-semibold">Logo 3</div>
+          </div>
         </div>
       </section>
 
-      <footer className="py-6 text-center text-neutral-500 text-sm bg-neutral-950">
-        © {new Date().getFullYear()} PaladSys. Todos os direitos reservados.
+      <section className="py-20 px-6" id="contato">
+        <div className="max-w-xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-4">Contato</h2>
+          <p className="text-neutral-300 mb-6">
+            Quer saber como podemos ajudar sua empresa? Envie uma mensagem e fale com um especialista da PaladSys.
+          </p>
+          <form
+            action="https://formspree.io/f/moqgqyep"
+            method="POST"
+            className="grid gap-4 text-left"
+          >
+            <input type="text" name="name" placeholder="Nome" required className="w-full p-3 rounded-md bg-neutral-800 text-white placeholder-neutral-400" />
+            <input type="email" name="email" placeholder="E-mail" required className="w-full p-3 rounded-md bg-neutral-800 text-white placeholder-neutral-400" />
+            <textarea name="message" placeholder="Mensagem" required rows="5" className="w-full p-3 rounded-md bg-neutral-800 text-white placeholder-neutral-400"></textarea>
+            <button type="submit" className="bg-white text-black px-6 py-3 rounded-2xl font-semibold shadow-lg hover:bg-neutral-200 transition">
+              Enviar Mensagem
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <footer className="py-10 text-center text-neutral-500 text-sm bg-neutral-950">
+        <p>© {new Date().getFullYear()} PaladSys. Todos os direitos reservados.</p>
+        <p className="mt-2">contato@paladsys.com</p>
       </footer>
     </main>
   );
