@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-scroll";
