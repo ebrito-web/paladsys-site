@@ -3,17 +3,17 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-import en from './locales/en/translation.json';
-import pt from './locales/pt/translation.json';
-import es from './locales/es/translation.json';
-import fr from './locales/fr/translation.json';
-import de from './locales/de/translation.json';
-import ru from './locales/ru/translation.json';
-import ar from './locales/ar/translation.json';
-import fa from './locales/fa/translation.json';
-import zh from './locales/zh/translation.json';
-import hi from './locales/hi/translation.json';
-import bn from './locales/bn/translation.json';
+import en from './locales/en/translation-us.json';
+import pt from './locales/pt/translation-pt.json';
+import es from './locales/es/translation-es.json';
+import fr from './locales/fr/translation-fr.json';
+import de from './locales/de/translation-de.json';
+import ru from './locales/ru/translation-ru.json';
+import ar from './locales/ar/translation-ar.json';
+import fa from './locales/fa/translation-fa.json';
+import zh from './locales/zh/translation-zh.json';
+import hi from './locales/hi/translation-hi.json';
+import bn from './locales/bn/translation-bn.json';
 
 i18n
   .use(LanguageDetector)
