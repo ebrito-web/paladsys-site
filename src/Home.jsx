@@ -1,14 +1,64 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-scroll";
 
 export default function Home() {
   useEffect(() => {
     document.title = "PaladSys – Segurança e Inovação";
   }, []);
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const closeMenu = () => setIsMenuOpen(false);
+
   return (
-    <main className="min-h-screen bg-neutral-950 text-white font-sans">
-      <section className="flex flex-col items-center justify-center h-screen px-4 text-center">
+    <main className="bg-neutral-950 text-white font-sans">
+      {/* Navbar */}
+      <header className="fixed top-0 left-0 right-0 bg-neutral-950 shadow-md z-50">
+        <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+          <h1 className="text-xl font-bold">PaladSys</h1>
+          <nav className="hidden md:flex space-x-6">
+            {['Início', 'Sobre', 'Serviços', 'Parceiros', 'Contato'].map((item, idx) => (
+              <Link
+                key={idx}
+                to={item.toLowerCase()}
+                smooth={true}
+                duration={500}
+                offset={-80}
+                className="cursor-pointer hover:text-neutral-300 transition"
+              >
+                {item}
+              </Link>
+            ))}
+          </nav>
+          <button className="md:hidden" onClick={toggleMenu}>
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+        {isMenuOpen && (
+          <div className="md:hidden bg-neutral-950 px-4 pb-4">
+            {['Início', 'Sobre', 'Serviços', 'Parceiros', 'Contato'].map((item, idx) => (
+              <Link
+                key={idx}
+                to={item.toLowerCase()}
+                smooth={true}
+                duration={500}
+                offset={-80}
+                onClick={closeMenu}
+                className="block py-2 border-b border-neutral-800 hover:text-neutral-300"
+              >
+                {item}
+              </Link>
+            ))}
+          </div>
+        )}
+      </header>
+
+      {/* Hero Section */}
+      <section id="início" className="flex flex-col items-center justify-center min-h-screen px-4 text-center pt-32">
         <motion.h1
           className="text-4xl md:text-6xl font-bold mb-6"
           initial={{ opacity: 0, y: -20 }}
@@ -36,7 +86,8 @@ export default function Home() {
         </motion.a>
       </section>
 
-      <section className="py-20 px-6 bg-neutral-900" id="sobre">
+      {/* Seção Sobre */}
+      <section id="sobre" className="py-20 px-6 bg-neutral-900">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">Sobre a PaladSys</h2>
           <p className="text-neutral-300">
@@ -45,7 +96,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 px-6" id="servicos">
+      {/* Seção Serviços */}
+      <section id="servicos" className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-10">Nossos Serviços</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
@@ -65,7 +117,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-neutral-900">
+      {/* Parceiros Estratégicos */}
+      <section id="parceiros" className="py-20 px-6 bg-neutral-900">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-10">Parceiros Estratégicos</h2>
           <div className="flex flex-wrap items-center justify-center gap-10">
@@ -76,7 +129,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-20 px-6" id="contato">
+      {/* Contato */}
+      <section id="contato" className="py-20 px-6">
         <div className="max-w-xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">Contato</h2>
           <p className="text-neutral-300 mb-6">
