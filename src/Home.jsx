@@ -6,6 +6,9 @@ import { useTranslation } from "react-i18next";
 export default function Home() {
   const { t, i18n } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const changeLanguage = (e) => {
+  i18n.changeLanguage(e.target.value);
+};
 
   useEffect(() => {
     const rtlLangs = ["ar", "fa"];
