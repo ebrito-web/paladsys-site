@@ -1,14 +1,17 @@
-import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-scroll";
+import { useTranslation } from "react-i18next";
 
 export default function Home() {
-  useEffect(() => {
-    document.title = "PaladSys – Segurança e Inovação";
-  }, []);
   const { t, i18n } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const rtlLangs = ["ar", "fa"];
+    document.documentElement.dir = rtlLangs.includes(i18n.language) ? "rtl" : "ltr";
+  }, [i18n.language]);
+
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
 
@@ -19,16 +22,16 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
           <img src="/logo_white_background.jpg" alt="PaladSys Logo" className="h-8 md:h-10" />
           <nav className="hidden md:flex space-x-6">
-            {['Início', 'Sobre', 'Serviços', 'Parceiros', 'Contato'].map((item, idx) => (
+            {["home", "about", "services", "partners", "contact"].map((item, idx) => (
               <Link
                 key={idx}
-                to={item.toLowerCase()}
+                to={item}
                 smooth={true}
                 duration={500}
                 offset={-80}
                 className="cursor-pointer hover:text-[#74b424] transition"
               >
-                {item}
+                {t(`menu.${item}`)}
               </Link>
             ))}
           </nav>
@@ -40,17 +43,17 @@ export default function Home() {
         </div>
         {isMenuOpen && (
           <div className="md:hidden bg-white px-4 pb-4">
-            {['Início', 'Sobre', 'Serviços', 'Parceiros', 'Contato'].map((item, idx) => (
+            {["home", "about", "services", "partners", "contact"].map((item, idx) => (
               <Link
                 key={idx}
-                to={item.toLowerCase()}
+                to={item}
                 smooth={true}
                 duration={500}
                 offset={-80}
                 onClick={closeMenu}
                 className="block py-2 border-b border-neutral-200 hover:text-[#74b424]"
               >
-                {item}
+                {t(`menu.${item}`)}
               </Link>
             ))}
           </div>
@@ -58,14 +61,14 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section id="início" className="flex flex-col items-center justify-center min-h-screen px-4 text-center pt-32">
+      <section id="home" className="flex flex-col items-center justify-center min-h-screen px-4 text-center pt-32">
         <motion.h1
           className="text-4xl md:text-6xl font-bold mb-6"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Inteligência em tecnologia.
+          {t("hero.title")}
         </motion.h1>
 
         <motion.p
@@ -74,32 +77,32 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
         >
-          Segurança como prioridade.
+          {t("hero.subtitle")}
         </motion.p>
 
         <motion.a
-          href="#contato"
+          href="#contact"
           className="mt-10 inline-block bg-[#74b424] text-white px-6 py-3 rounded-2xl font-semibold shadow-lg hover:bg-[#639c1e] transition"
           whileHover={{ scale: 1.05 }}
         >
-          Fale Conosco
+          {t("button.contact")}
         </motion.a>
       </section>
 
-      {/* Seção Sobre */}
-      <section id="sobre" className="py-20 px-6 bg-neutral-100">
+      {/* Sobre */}
+      <section id="about" className="py-20 px-6 bg-neutral-100">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4 text-[#74b424]">Sobre a PaladSys</h2>
+          <h2 className="text-3xl font-bold mb-4 text-[#74b424]">{t("menu.about")}</h2>
           <p className="text-neutral-700">
             A PaladSys entrega soluções estratégicas em infraestrutura e segurança da informação para organizações que exigem excelência, performance e resiliência.
           </p>
         </div>
       </section>
 
-      {/* Seção Serviços */}
-      <section id="servicos" className="py-20 px-6">
+      {/* Serviços */}
+      <section id="services" className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-10 text-[#74b424]">Nossos Serviços</h2>
+          <h2 className="text-3xl font-bold text-center mb-10 text-[#74b424]">{t("menu.services")}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="bg-neutral-100 p-6 rounded-2xl shadow-md">
               <h3 className="text-xl font-semibold mb-2">Infraestrutura Gerenciada</h3>
@@ -117,10 +120,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Parceiros Estratégicos */}
-      <section id="parceiros" className="py-20 px-6 bg-neutral-100">
+      {/* Parceiros */}
+      <section id="partners" className="py-20 px-6 bg-neutral-100">
         <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-10 text-[#74b424]">Parceiros Estratégicos</h2>
+          <h2 className="text-3xl font-bold mb-10 text-[#74b424]">{t("menu.partners")}</h2>
           <div className="flex flex-wrap items-center justify-center gap-10">
             <div className="w-32 h-16 bg-white border border-neutral-200 rounded-lg shadow-sm flex items-center justify-center text-black font-semibold">Logo 1</div>
             <div className="w-32 h-16 bg-white border border-neutral-200 rounded-lg shadow-sm flex items-center justify-center text-black font-semibold">Logo 2</div>
@@ -130,9 +133,9 @@ export default function Home() {
       </section>
 
       {/* Contato */}
-      <section id="contato" className="py-20 px-6">
+      <section id="contact" className="py-20 px-6">
         <div className="max-w-xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4 text-[#74b424]">Contato</h2>
+          <h2 className="text-3xl font-bold mb-4 text-[#74b424]">{t("menu.contact")}</h2>
           <p className="text-neutral-700 mb-6">
             Quer saber como podemos ajudar sua empresa? Envie uma mensagem e fale com um especialista da PaladSys.
           </p>
@@ -141,11 +144,15 @@ export default function Home() {
             method="POST"
             className="grid gap-4 text-left"
           >
-            <input type="text" name="name" placeholder="Nome" required className="w-full p-3 rounded-md bg-neutral-100 border border-neutral-300 text-black placeholder-neutral-500" />
-            <input type="email" name="email" placeholder="E-mail" required className="w-full p-3 rounded-md bg-neutral-100 border border-neutral-300 text-black placeholder-neutral-500" />
-            <textarea name="message" placeholder="Mensagem" required rows="5" className="w-full p-3 rounded-md bg-neutral-100 border border-neutral-300 text-black placeholder-neutral-500"></textarea>
-            <button type="submit" className="bg-[#74b424] text-white px-6 py-3 rounded-2xl font-semibold shadow-lg hover:bg-[#639c1e] transition">
-              Enviar Mensagem
+            <input type="text" name="name" placeholder={t("form.name")}
+              className="w-full p-3 rounded-md bg-neutral-100 border border-neutral-300 text-black placeholder-neutral-500" required />
+            <input type="email" name="email" placeholder={t("form.email")}
+              className="w-full p-3 rounded-md bg-neutral-100 border border-neutral-300 text-black placeholder-neutral-500" required />
+            <textarea name="message" placeholder={t("form.message")}
+              className="w-full p-3 rounded-md bg-neutral-100 border border-neutral-300 text-black placeholder-neutral-500" required rows="5" />
+            <button type="submit"
+              className="bg-[#74b424] text-white px-6 py-3 rounded-2xl font-semibold shadow-lg hover:bg-[#639c1e] transition">
+              {t("form.submit")}
             </button>
           </form>
         </div>
