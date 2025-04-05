@@ -7,7 +7,7 @@ export default function Home() {
   useEffect(() => {
     document.title = "PaladSys – Segurança e Inovação";
   }, []);
-
+  const { t, i18n } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
