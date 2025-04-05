@@ -67,7 +67,7 @@ export default function Home() {
 
       <section className="py-20 px-6 bg-neutral-900" id="contato">
         <div className="max-w-2xl mx-auto text-center">
-          < <h2 className="text-3xl font-bold mb-4">Contato</h2>
+          <h2 className="text-3xl font-bold mb-4">Contato</h2>
           <p className="text-neutral-300 mb-6">
             Quer saber como podemos ajudar sua empresa? Entre em contato e fale com um especialista PaladSys.
           </p>
