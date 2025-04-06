@@ -94,7 +94,7 @@ export default function Home() {
         )}
       </header>
 
-      <section id="home" className="pt-32 relative h-[80vh] flex items-center justify-center text-center overflow-hidden">
+      <section id="home" className="pt-20 relative h-screen flex items-center justify-center text-center overflow-hidden">
         {slideImages.map((img, index) => (
           <div
             key={index}
