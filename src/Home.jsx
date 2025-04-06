@@ -94,7 +94,6 @@ export default function Home() {
         )}
       </header>
 
-      {/* Hero Section with Slide */}
       <section id="home" className="pt-32 relative h-[80vh] flex items-center justify-center text-center overflow-hidden">
         {slideImages.map((img, index) => (
           <div
@@ -135,13 +134,45 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Sobre */}
+      {/* SOBRE */}
       <section id="about" className="py-20 px-6 bg-neutral-100">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4 text-[#74b424]">{t("menu.about")}</h2>
-          <p className="text-neutral-700">
-            A PaladSys entrega soluções em infraestrutura e segurança da informação para organizações que exigem excelência, performance e resiliência
-          </p>
+        <div className="max-w-5xl mx-auto text-center">
+          <motion.h2
+            className="text-3xl font-bold mb-6 text-[#74b424]"
+            initial={{ opacity: 0, y: -10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            {t("about.title")}
+          </motion.h2>
+
+          <motion.p
+            className="text-neutral-700 max-w-3xl mx-auto mb-12"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            {t("about.intro")}
+          </motion.p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {["pillar1", "pillar2", "pillar3"].map((key, idx) => (
+              <motion.div
+                key={idx}
+                className="bg-white rounded-2xl shadow-md p-6"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: idx * 0.2 }}
+              >
+                <h3 className="text-xl font-semibold mb-2 text-[#74b424]">
+                  {t(`about.${key}.title`)}
+                </h3>
+                <p className="text-neutral-600">
+                  {t(`about.${key}.desc`)}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
     </main>
