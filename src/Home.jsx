@@ -35,7 +35,7 @@ export default function Home() {
 
   return (
     <main className="bg-white text-black font-sans">
-      <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md shadow z-50">
+      <header className="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
         <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
           <img src="/logo_white_background.jpg" alt="PaladSys Logo" className="h-8 md:h-10" />
           <nav className="hidden md:flex space-x-6 items-center">
@@ -132,6 +132,16 @@ export default function Home() {
           >
             {t("button.contact")}
           </motion.a>
+        </div>
+      </section>
+
+      {/* Sobre */}
+      <section id="about" className="pt-32 py-20 px-6 bg-neutral-100">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-4 text-[#74b424]">{t("menu.about")}</h2>
+          <p className="text-neutral-700">
+            A PaladSys entrega soluções estratégicas em infraestrutura e segurança da informação para organizações que exigem excelência, performance e resiliência.
+          </p>
         </div>
       </section>
     </main>
