@@ -100,13 +100,15 @@ export default function Home() {
           <div
             key={index}
             className={`absolute top-0 left-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 ${
-              currentSlide === index ? 'opacity-100 z-10' : 'opacity-0 z-0'
+              currentSlide === index ? 'opacity-100 z-0' : 'opacity-0 z-0'
             }`}
             style={{ backgroundImage: `url(${img})` }}
           />
         ))}
 
-        <div className="relative z-20 text-center px-4 mt-20">
+        <div className="absolute inset-0 bg-black opacity-50 z-10" />
+
+        <div className="relative z-20 text-center px-4">
           <motion.h1
             className="text-white text-4xl md:text-6xl font-bold drop-shadow-xl"
             initial={{ opacity: 0, y: -20 }}
@@ -131,9 +133,81 @@ export default function Home() {
             {t("button.contact")}
           </motion.a>
         </div>
-
-        <div className="absolute inset-0 bg-black opacity-50 z-10" />
       </section>
+
+      {/* Sobre */}
+      <section id="about" className="py-20 px-6 bg-neutral-100">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-4 text-[#74b424]">{t("menu.about")}</h2>
+          <p className="text-neutral-700">
+            A PaladSys entrega soluções estratégicas em infraestrutura e segurança da informação para organizações que exigem excelência, performance e resiliência.
+          </p>
+        </div>
+      </section>
+
+      {/* Serviços */}
+      <section id="services" className="py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-10 text-[#74b424]">{t("menu.services")}</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div className="bg-neutral-100 p-6 rounded-2xl shadow-md">
+              <h3 className="text-xl font-semibold mb-2">Infraestrutura Gerenciada</h3>
+              <p className="text-neutral-600">Gestão completa de servidores, redes e sistemas com foco em alta disponibilidade.</p>
+            </div>
+            <div className="bg-neutral-100 p-6 rounded-2xl shadow-md">
+              <h3 className="text-xl font-semibold mb-2">Backup & Disaster Recovery</h3>
+              <p className="text-neutral-600">Soluções robustas para continuidade do seu negócio e proteção contra perdas de dados.</p>
+            </div>
+            <div className="bg-neutral-100 p-6 rounded-2xl shadow-md">
+              <h3 className="text-xl font-semibold mb-2">Segurança da Informação</h3>
+              <p className="text-neutral-600">Monitoramento, prevenção de ameaças e implementação de políticas de segurança.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Parceiros */}
+      <section id="partners" className="py-20 px-6 bg-neutral-100">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-10 text-[#74b424]">{t("menu.partners")}</h2>
+          <div className="flex flex-wrap items-center justify-center gap-10">
+            <div className="w-32 h-16 bg-white border border-neutral-200 rounded-lg shadow-sm flex items-center justify-center text-black font-semibold">Logo 1</div>
+            <div className="w-32 h-16 bg-white border border-neutral-200 rounded-lg shadow-sm flex items-center justify-center text-black font-semibold">Logo 2</div>
+            <div className="w-32 h-16 bg-white border border-neutral-200 rounded-lg shadow-sm flex items-center justify-center text-black font-semibold">Logo 3</div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contato */}
+      <section id="contact" className="py-20 px-6">
+        <div className="max-w-xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-4 text-[#74b424]">{t("menu.contact")}</h2>
+          <p className="text-neutral-700 mb-6">
+            Quer saber como podemos ajudar sua empresa? Envie uma mensagem e fale com um especialista da PaladSys.
+          </p>
+          <form
+            action="https://formspree.io/f/moqgqyep"
+            method="POST"
+            className="grid gap-4 text-left"
+          >
+            <input type="text" name="name" placeholder={t("form.name")}
+              className="w-full p-3 rounded-md bg-neutral-100 border border-neutral-300 text-black placeholder-neutral-500" required />
+            <input type="email" name="email" placeholder={t("form.email")}
+              className="w-full p-3 rounded-md bg-neutral-100 border border-neutral-300 text-black placeholder-neutral-500" required />
+            <textarea name="message" placeholder={t("form.message")}
+              className="w-full p-3 rounded-md bg-neutral-100 border border-neutral-300 text-black placeholder-neutral-500" required rows="5" />
+            <button type="submit"
+              className="bg-[#74b424] text-white px-6 py-3 rounded-2xl font-semibold shadow-lg hover:bg-[#639c1e] transition">
+              {t("form.submit")}
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <footer className="py-10 text-center text-neutral-500 text-sm bg-white">
+        <p>© {new Date().getFullYear()} PaladSys. Todos os direitos reservados.</p>
+        <p className="mt-2 text-black">contato@paladsys.com</p>
+      </footer>
     </main>
   );
 }
