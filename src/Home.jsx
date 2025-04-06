@@ -140,7 +140,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4 text-[#74b424]">{t("menu.about")}</h2>
           <p className="text-neutral-700">
-            A PaladSys entrega soluções estratégicas em infraestrutura e segurança da informação para organizações que exigem excelência, performance e resiliência.
+            A PaladSys entrega soluções em infraestrutura e segurança da informação para organizações que exigem excelência, performance e resiliência.
           </p>
         </div>
       </section>
