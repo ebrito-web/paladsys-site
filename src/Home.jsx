@@ -94,45 +94,33 @@ export default function Home() {
         )}
       </header>
 
-      {/* Hero Slide */}
-      <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
-        {slideImages.map((img, index) => (
-          <div
-            key={index}
-            className={`absolute top-0 left-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 ${
-              currentSlide === index ? 'opacity-100 z-0' : 'opacity-0 z-0'
-            }`}
-            style={{ backgroundImage: `url(${img})` }}
-          />
-        ))}
+      {/* Hero Section */}
+      <section id="home" className="pt-32 text-center px-4">
+        <motion.h1
+          className="text-4xl md:text-6xl font-bold mb-6"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          {t("hero.title")}
+        </motion.h1>
 
-        <div className="absolute inset-0 bg-black opacity-50 z-10" />
+        <motion.p
+          className="text-lg md:text-2xl text-neutral-600 max-w-2xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.3 }}
+        >
+          {t("hero.subtitle")}
+        </motion.p>
 
-        <div className="relative z-20 text-center px-4">
-          <motion.h1
-            className="text-white text-4xl md:text-6xl font-bold drop-shadow-xl"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            {t("hero.title")}
-          </motion.h1>
-          <motion.p
-            className="text-white text-lg md:text-2xl mt-4 drop-shadow-md"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3 }}
-          >
-            {t("hero.subtitle")}
-          </motion.p>
-          <motion.a
-            href="#contact"
-            className="mt-10 inline-block bg-[#74b424] text-white px-6 py-3 rounded-2xl font-semibold shadow-lg hover:bg-[#639c1e] transition"
-            whileHover={{ scale: 1.05 }}
-          >
-            {t("button.contact")}
-          </motion.a>
-        </div>
+        <motion.a
+          href="#contact"
+          className="mt-10 inline-block bg-[#74b424] text-white px-6 py-3 rounded-2xl font-semibold shadow-lg hover:bg-[#639c1e] transition"
+          whileHover={{ scale: 1.05 }}
+        >
+          {t("button.contact")}
+        </motion.a>
       </section>
 
       {/* Sobre */}
