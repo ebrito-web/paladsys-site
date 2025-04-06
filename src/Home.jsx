@@ -35,7 +35,7 @@ export default function Home() {
 
   return (
     <main className="bg-white text-black font-sans">
-      <header className="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+      <header className="absolute top-0 left-0 right-0 bg-white/80 backdrop-blur-md shadow-md z-50">
         <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
           <img src="/logo_white_background.jpg" alt="PaladSys Logo" className="h-8 md:h-10" />
           <nav className="hidden md:flex space-x-6 items-center">
@@ -108,7 +108,7 @@ export default function Home() {
 
         <div className="absolute inset-0 bg-black opacity-50 z-10" />
 
-        <div className="relative z-20 text-center px-4">
+        <div className="relative z-20 text-center px-4 mt-32">
           <motion.h1
             className="text-white text-4xl md:text-6xl font-bold drop-shadow-xl"
             initial={{ opacity: 0, y: -20 }}
