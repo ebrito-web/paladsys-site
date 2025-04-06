@@ -4,9 +4,9 @@ import { Link } from "react-scroll";
 import { useTranslation } from "react-i18next";
 
 const slideImages = [
-  "/slides/slide1.jpg",
-  "/slides/slide2.jpg",
-  "/slides/slide3.jpg"
+  "/slides/slide1.jpeg",
+  "/slides/slide2.jpeg",
+  "/slides/slide3.jpeg"
 ];
 
 export default function Home() {
